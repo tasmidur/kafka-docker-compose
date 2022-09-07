@@ -1,0 +1,14 @@
+version: '3.9'
+services:
+  kafka-ui:
+    container_name: kafka-ui
+    image: docker.redpanda.com/vectorized/console:latest
+    ports:
+      - 8089:8080
+    environment:
+      - KAFKA_BROKERS=rocket-01.srvs.cloudkafka.com:9094,rocket-02.srvs.cloudkafka.com:9094,rocket-03.srvs.cloudkafka.com:9094
+      - KAFKA_TLS_ENABLED=true
+      - KAFKA_SASL_ENABLED=true
+      - KAFKA_SASL_MECHANISM=SCRAM-SHA-256
+      - KAFKA_SASL_USERNAME=q9e1jzik
+      - KAFKA_SASL_PASSWORD=TTmhLGOs2IeU-rVIUy1tuoQdgGcGdIOA
