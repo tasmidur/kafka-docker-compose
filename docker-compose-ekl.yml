@@ -1,0 +1,74 @@
+version: '3.9'
+services:
+  elasticsearch:
+    container_name: elasticsearch
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.0.1
+    ports:
+     - "9200:9200"
+    environment:
+     - http.host=0.0.0.0
+     - transport.host=127.0.0.1
+     - xpack.security.enabled=false
+     - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    depends_on:
+      - connect
+    volumes:
+      - "./elk/elastic-data:/usr/share/elasticsearch/data"
+    networks:
+      - elk
+      
+  kibana:
+    container_name: kibana
+    image: docker.elastic.co/kibana/kibana:7.0.1
+    environment:
+      ELASTICSEARCH_HOSTS: http://elasticsearch:9200
+      ELASTICSEARCH_URL: http://elasticsearch:9200
+    depends_on:
+      - elasticsearch
+    ports:
+      - 5601:5601
+    networks:
+      - elk
+
+  logstash:
+    image: docker.elastic.co/logstash/logstash:7.0.1
+    container_name: logstash
+    volumes:
+      - ./elk/logstash/pipeline:/usr/share/logstash/pipeline:ro,Z
+    depends_on:
+      - elasticsearch
+    ports:
+      - "5044:5044"
+      - "5000:5000/tcp"
+      - "5000:5000/udp"
+      - "9600:9600"
+    environment:
+      - http.host=0.0.0.0
+      - "LS_JAVA_OPTS=-Xmx256m -Xms256m"
+    networks:
+      - elk
+
+  filebeat:
+    container_name: filebeat
+    image: docker.elastic.co/beats/filebeat:7.0.1 #filebeat: a lightweight log file data collector, which is one of the six log collectors of Beats
+    depends_on: 
+      - elasticsearch
+      - logstash
+      - kibana
+    restart: on-failure
+    command: filebeat -e -strict.perms=false
+    environment:
+      - TZ=Asia/Dhaka
+    volumes: #filebeat.yml to configure.log Log output of file to logstash #At the same time, configure the log directory that needs to be scanned for mounting, because it scans the file path in the filebeat container
+      - "./elk/filebeat/conf/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro"
+      - "./logs:/var/elk/logs:ro"
+    networks:
+      - elk
+
+networks:
+    elk:
+      driver: bridge

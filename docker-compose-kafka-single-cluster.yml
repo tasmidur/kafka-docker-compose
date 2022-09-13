@@ -1,0 +1,34 @@
+version: '3.9'
+services:
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.1.2
+    environment:
+      ZOOKEEPER_SERVER_ID: 1
+      ZOOKEEPER_CLIENT_PORT: 22181
+      ZOOKEEPER_TICK_TIME: 2000
+      ZOOKEEPER_INIT_LIMIT: 5
+      ZOOKEEPER_SYNC_LIMIT: 2
+      ZOOKEEPER_SERVERS: 192.168.13.181:22888:23888
+    network_mode: host
+
+  kafka:
+    image: confluentinc/cp-kafka:7.1.2
+    network_mode: host
+    ports:
+      - "19092:19092"
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:22181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://192.168.13.181:19092
+
+  kafka-redpanda-ui:
+    container_name: kafka-redpanda-ui
+    image: docker.redpanda.com/vectorized/console:latest
+    depends_on: 
+        - kafka
+    ports:
+      - 8089:8080
+    environment:
+      - KAFKA_BROKERS=broker: kafka:19092

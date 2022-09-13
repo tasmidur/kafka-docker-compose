@@ -1,0 +1,15 @@
+version: '3.1'
+services:
+  kafka-redpanda-ui:
+    container_name: kafka-redpanda-ui
+    image: docker.redpanda.com/vectorized/console:latest
+    depends_on: 
+        - broker
+    ports:
+      - 8089:8080
+    environment:
+      - KAFKA_BROKERS=broker: glider-02.srvs.cloudkafka.com:9094,glider-03.srvs.cloudkafka.com:9094,glider-01.srvs.cloudkafka.com:9094
+      - KAFKA_TLS_ENABLED: true
+      - KAFKA_SASL_ENABLED: true
+      - KAFKA_SASL_USERNAME: 
+      - KAFKA_SASL_PASSWORD: 

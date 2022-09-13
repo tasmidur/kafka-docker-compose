@@ -1,0 +1,49 @@
+m{"level":"info","message":"Starting Nest application...","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"MongooseModule dependencies initialized","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"TypeOrmModule dependencies initialized","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"TypeOrmModule dependencies initialized","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"TypeOrmModule dependencies initialized","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"TypeOrmModule dependencies initialized","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"ConfigHostModule dependencies initialized","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"AppModule dependencies initialized","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"DiscoveryModule dependencies initialized","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"ConfigModule dependencies initialized","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"ConfigModule dependencies initialized","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"EventEmitterModule dependencies initialized","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"KafkaModule dependencies initialized","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"SELECT VERSION() AS `version` -- Parameters: undefined","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"SELECT VERSION() AS `version` -- Parameters: undefined","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"SELECT VERSION() AS `version` -- Parameters: undefined","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"MongooseCoreModule dependencies initialized","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"MongooseModule dependencies initialized","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"START TRANSACTION -- Parameters: undefined","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"START TRANSACTION -- Parameters: undefined","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"START TRANSACTION -- Parameters: undefined","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"SELECT VERSION() AS `version` -- Parameters: undefined","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"SELECT * FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA` = 'nise_core' AND `TABLE_NAME` = 'typeorm_metadata' -- Parameters: undefined","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"SELECT * FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA` = 'nise_ssp' AND `TABLE_NAME` = 'typeorm_metadata' -- Parameters: undefined","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"SELECT * FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA` = 'nise_industry_association' AND `TABLE_NAME` = 'typeorm_metadata' -- Parameters: undefined","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"START TRANSACTION -- Parameters: undefined","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"COMMIT -- Parameters: undefined","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"COMMIT -- Parameters: undefined","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"COMMIT -- Parameters: undefined","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"SELECT * FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA` = 'nise_youth' AND `TABLE_NAME` = 'typeorm_metadata' -- Parameters: undefined","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"TypeOrmCoreModule dependencies initialized","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"TypeOrmCoreModule dependencies initialized","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"TypeOrmCoreModule dependencies initialized","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"COMMIT -- Parameters: undefined","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"TypeOrmCoreModule dependencies initialized","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"DataSourceModule dependencies initialized","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"NotificationMessageModule dependencies initialized","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"AppController {/api/v1}:","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"Mapped {/api/v1, GET} route","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"NotificationMessageController {/api/v1/notification-messages}:","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"Mapped {/api/v1/notification-messages, GET} route","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"Mapped {/api/v1/notification-messages/:id, GET} route","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"Mapped {/api/v1/notification-messages/:receiver_id/receiver-notifications, GET} route","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"Mapped {/api/v1/notification-messages/:id, DELETE} route","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"Mapped {/api/v1/notification-messages/:receiver_id/un-seen-notification-count, GET} route","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"Mapped {/api/v1/notification-messages/:receiver_id/notification-message-seen, POST} route","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"Mapped {/api/v1/notification-messages/:receiver_id/notification-statistics, GET} route","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"Mapped {/api/v1/notification-messages/:id/notification-message-read, POST} route","timestamp":"2022-09-07T18:21:51+06:00"}m
+m{"level":"info","message":"Nest application successfully started","timestamp":"2022-09-07T18:21:51+06:00"}m

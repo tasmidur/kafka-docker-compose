@@ -1,0 +1,25 @@
+filebeat.inputs:
+  - type: log #Enter the type of filebeat, which is set to log (default), that is, the log of the specific path. In addition, the attribute values include stdin (keyboard input), kafka and redis. For details, please refer to the official website
+    enabled: true #Enable filebeat collection
+    symlinks: true #Collect soft link files
+    paths: #Configure the global acquisition path, which can be distinguished according to different modules in the later stage
+      - /var/elk/logs/*.log # Specify the path of the log file to be collected (the path of the file in the container, so we need to mount it)
+    fields: #You can add additional information to the output log
+      log_type: syslog
+    tags: ["notification_log_file"]
+
+    ## Set multi line merge output when it conforms to the same format
+    #multiline.pattern: '^\[[0-9]{4}-[0-9]{2}-[0-9]{2}' #The regular expression is used to match whether it belongs to the same format. Here is the date regular expression, which means that if it starts with yyyy MM DD, this line is the first line of a log and will be aggregated into a log output with the following contents that are not in this format
+    #multiline.negate: true # Whether it is necessary to transpose the pattern condition. If not, set the transpose to true and the transpose to false. Understanding: if it is set to false, then [multiline.match: after] means that after matching the pattern, it will be merged with the previous content into a log
+    #multiline.match: after #After matching the pattern, merge it with the following contents into a log
+    #multiline.max_lines: 10000 #Indicates that if the number of lines of multi line information exceeds this number, the excess will be discarded. The default value is 500 rows
+    #multiline.timeout: 10s #Timeout setting timeout will send the matched collected logs
+    #encoding: utf-8 #The file encoding used to read data containing international characters
+    #tail_files: true #Monitor and read the new content from the end of the file instead of re reading and sending from the file. It is applicable to unprocessed files. If it has been processed, the registry file needs to be deleted
+
+output.logstash:
+  hosts: ["logstash:5044"]
+  #Send output to logstash; The public ip address of the host. You can also fill in docker compose The container name of logstash in YML, such as "logstash:5044" (provided that it belongs to the same docker network and the type is bridge)
+  #multiline.timeout: 10s #Timeout setting timeout will send the matched collected logs
+  #encoding: utf-8 #The file encoding used to read data containing international characters
+  #tail_files: true #Monitor and read the new content from the end of the file instead of re reading and sending from the file. It is applicable to unprocessed files. If it has been processed, the registry file needs to be deleted
